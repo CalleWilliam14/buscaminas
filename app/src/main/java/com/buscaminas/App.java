@@ -1,4 +1,4 @@
-package com.buscaminas.demo;
+package com.buscaminas;
 
 import com.buscaminas.interfazJuego.JuegoIU;
 
