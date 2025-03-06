@@ -17,8 +17,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class JuegoIU {
-	private final int BASE = 380;
-	private final int ALTURA = 490;
+	private final int BASE = 490;
+	private final int ALTURA = 380;
 	private JFrame ventana;
 	private JPanel contenedor;
 	private JPanel panelCampo;
