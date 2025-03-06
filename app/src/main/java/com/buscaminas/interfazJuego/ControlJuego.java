@@ -10,6 +10,7 @@ import java.awt.Rectangle;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import com.buscaminas.juego.Juego;
@@ -51,13 +52,13 @@ public class ControlJuego extends JPanel implements MouseHandler {
 		else {
 			switch (nivel) {
 				case "Dificil":
-					ajustar(15, 25, 15, 75);
+					ajustar(25, 15, 18, 75);
 					break;
 				case "Medio":
-					ajustar(11, 18, 21, 35);
+					ajustar(18, 11, 25, 35);
 					break;
 				default:
-					ajustar(6, 11, 34, 10);
+					ajustar(11, 6, 34, 10);
 			}
 			nivelActual = nivel;
 		}
@@ -180,7 +181,20 @@ public class ControlJuego extends JPanel implements MouseHandler {
 		    if (e.isMetaDown()) {
 		    	if (juego.marcarPosicion(posX, posY)) repaint();
 		    	else if (juego.desmarcarPosicion(posX, posY)) repaint();
-		    } else if (juego.jugar(posX, posY)) repaint();
-	    } 
-	}
+		    } else if (juego.jugar(posX, posY)) {
+                repaint();
+
+                if (juego.juegoTerminado()) {
+                    String mensaje;
+
+                    if (juego.juegoGanado())
+                        mensaje = "¡Has Ganado!";
+                    else
+                        mensaje = "¡Has Perdido!";
+
+                    JOptionPane.showMessageDialog(this, mensaje);
+                } 
+            }
+        }
+    }
 }
